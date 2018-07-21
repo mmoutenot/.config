@@ -1,0 +1,37 @@
+[global_config]
+  borderless = True
+  enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
+  focus = mouse
+  title_transmit_bg_color = "#555753"
+[keybindings]
+  close_term = <Primary>w
+  copy = <Primary><Shift>c
+  go_down = <Primary><Shift>j
+  go_left = <Primary><Shift>h
+  go_next = None
+  go_prev = None
+  go_right = <Primary><Shift>l
+  go_up = <Primary><Shift>k
+  new_tab = <Primary>t
+  paste = <Primary>v
+  split_horiz = <Primary><Shift>d
+  split_vert = <Primary>d
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_color = "#282828"
+    background_darkness = 0.9
+    cursor_color = "#aaaaaa"
+    font = Monospace 10
+    foreground_color = "#ebdbb2"
+    palette = "#282828:#cc241d:#98971a:#d79921:#458588:#b16286:#689d6a:#a89984:#928374:#fb4934:#b8bb26:#fabd2f:#83a598:#d3869b:#8ec07c:#ebdbb2"
+    scrollback_lines = 5000
+    use_system_font = False
