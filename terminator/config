@@ -13,7 +13,7 @@
   go_right = <Primary><Shift>l
   go_up = <Primary><Shift>k
   new_tab = <Primary>t
-  paste = <Alt>v
+  paste = <Primary>v
   split_horiz = <Primary><Shift>d
   split_vert = <Primary>d
 [layouts]
