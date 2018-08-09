@@ -33,10 +33,10 @@ floating_modifier $mod
 bindsym $mod+Return exec terminator
 
 # kill focused window
-bindsym $mod+q kill
+bindsym Control+q kill
 
 # start dmenu (a program launcher)
-bindsym Mod4+space exec "rofi -dpi 220 -combi-modi window,drun -show combi -modi combi"
+bindcode 133 --release exec "rofi -dpi 220 -combi-modi window,drun -show combi -modi combi"
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -177,7 +177,8 @@ bindsym $mod+Shift+x exec i3lock --color 475263
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 # bar {
-#         status_command i3status
+#        position top
+#        status_command i3status
 # }
 
 # Set window border to 1 pixel
@@ -203,8 +204,8 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym F86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec light -A 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec light -U 20 # decrease screen brightness
 
 # Screenshots
 #bindsym $mod+Control+Shift+4 --release exec "gnome-screenshot -ac"
@@ -218,13 +219,16 @@ bindsym $mod+Control+Shift+4 --release exec "scrot -s /tmp/screenshot-$(date +%F
 exec --no-startup-id blueman-applet &
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 exec --no-startup-id nm-applet
+exec --no-startup-up pasytray
 exec --no-startup-id caffeine-indicator
-exec --no-startup-id synclient
+# exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
+exec_always --no-startup-id gnome-power-manager
 exec --no-startup-id nitrogen --restore
-exec --no-startup-id redshift
+# exec --no-startup-id redshift
+exec --no-startup-id gnome-flashback
 exec_always --no-startup-id ~/.config/i3/bar.sh &
-exec_always --no-startup-id ~/.config/i3/caps.sh
+exec_always --no-startup-id ~/.config/i3/keys.sh
+exec --no-startup-id xmodmap ~/.Xmodmap
 
 # Start compton for shadows and nice stuff
-# exec --no-startup-id compton --config ~/.config/compton.conf -b
-
+exec --no-startup-id compton --config ~/.config/compton.conf -b

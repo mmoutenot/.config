@@ -1,11 +1,62 @@
+;=====================================================
+; Colors used later, change here to change colors
+; in a modular way
+;=====================================================
 
-[bar/top]
+[colors]
+
+; Note: #aarrggbb, omit for solid alpha #rrggbb
+main-bar-background = #00000000
+main-bar-foreground = #000
+modules-background  = ${self.main-bar-background}
+
+battery-icon-fgcolor = #000
+volume-icon-fgcolor = #000
+bright-icon-fgcolor = #000
+date-icon-fgcolor = #000
+
+;=====================================================
+
+;=====================================================
+; i3 colors and settings
+;=====================================================
+[wm_settings]
+focused_background   = ${colors.main-bar-background}
+unfocused_background = ${colors.main-bar-background}
+unfocused_alert      = #F4511E
+
+padding = 1
+
+icon_focused = 
+icon_occupied = 
+icon_unfocused = 
+;=====================================================
+
+;=====================================================
+; Fonts 
+;=====================================================
+[fonts]
+font-0 = NotoSans-Regular:size=10;
+font-1 = unifont:size=10;
+font-2 = FontAwesome:size=9;2
+
+[bar/main]
 dpi=220
 width = 100%
 height = 40
 
-background = #00000000
-foreground = #ccffffff
+background = ${colors.main-bar-background}
+foreground = ${colors.main-bar-foreground}
+
+enable-ipc = true
+separator = 
+
+border-size = 4
+border-color = ${colors.main-bar-background}
+
+font-0 = ${fonts.font-0}
+font-1 = ${fonts.font-1}
+font-2 = ${fonts.font-2}
 
 line-color = #00000000
 
@@ -19,9 +70,9 @@ padding-right = 4
 padding-left = 4
 module-margin= 2
 
-font-0 = NotoSans-Regular:size=10;
-font-1 = unifont:size=10;
-font-2 = FontAwesome:size=12;
+# font-0 = NotoSans-Regular:size=10;
+# font-1 = unifont:size=10;
+# font-2 = FontAwesome:size=12;
 
 modules-left = i3 spotify
 modules-center = date
@@ -47,18 +98,19 @@ wrapping-scroll = false
 workspace-label = %index%: %icon%
 
 label-focused = ${self.workspace-label}
-label-focused-padding = 1
+label-focused-padding = 2
+label-focused-background = #ffffff
 
 label-unfocused = ${self.workspace-label}
-label-unfocused-padding = 1
+label-unfocused-padding = 2
 label-unfocused-foreground = #555555
 
 label-urgent = ${self.workspace-label}
-label-urgent-padding = 1
+label-urgent-padding = 2
 
 label-visible = ${self.workspace-label}
-label-visible-padding = 1
-label-visible-foregroud = #888888
+label-visible-padding = 2
+label-visible-foreground = #888888
 
 [module/temperature]
 type = internal/temperature
